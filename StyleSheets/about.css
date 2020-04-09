@@ -1,0 +1,143 @@
+body {
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+    background: #1a435b;
+  padding: 0;
+  margin: 0;
+}
+
+.Ccontainer {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  margin: 10px;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* header login and signup*/
+header {
+  color: #ffffff;
+  background-color: #233237;
+  min-height: 70px;
+  border-bottom: #e8491d 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+
+header li {
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+/*header head*/
+header #head-main {
+  float: left;
+}
+
+header #head-main h1 {
+  color: #FEDC3D;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+#head-main h1:hover {
+  transition: .2s;
+  text-shadow: 0 0 5px #fedc3d;
+  transform: scale(1.005);
+}
+
+header nav {
+  float: right;
+  margin-top: 27px;
+}
+
+header a:hover {
+  background-color: rgba(152, 135, 143, 0.5);
+  color: #cccccc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/*navigation menu*/
+.main-nav {
+  height: 45px;
+  border-bottom: #e8491d 3px solid;
+}
+
+.main-nav nav {
+  margin: 10px;
+  float-left;
+}
+
+.main-nav nav ul {
+  display: flex;
+}
+
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.main-nav li {
+  display: inline-block;
+  float: left;
+  margin-top: 5px;
+  padding: 0 10px 0 10px;
+}
+
+.main-nav li a:hover {
+  background-color: rgba(152, 135, 143, 0.5);
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+
+/*main content*/
+#what-are-we {
+  font-size: 16px;
+  background-color: rgba(29, 61, 81, 0.8);
+  padding: 10px;
+  color: white;
+  border: 1px soild white;
+  border-radius: 6px;
+  margin-top: 20px;
+  height:auto;
+}
+.p2{
+  margin:20px 0;
+  line-height: 35px;
+  height:auto;
+}
+
+/*footer*/
+footer {
+  background-color: rgb(35, 50, 55);
+  width: 100%;
+  color: white;
+  padding-left: 30px;
+  line-height: 40px;
+}
+footer p{
+  margin-top:15px !important;
+}

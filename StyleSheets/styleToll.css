@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+  background: #1a435b;
+}
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.head-top {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.profile {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.Ccontainer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* header login and signup*/
+header {
+  color: #ffffff;
+  background-color: #233237;
+  min-height: 70px;
+  border-bottom: #e8491d 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+
+header li {
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+/*header head*/
+header #head-main {
+  float: left;
+}
+
+header #head-main h1 {
+  color: #FEDC3D;
+  margin-top: 15px;
+  margin-left: 20px;
+  width: 100%;
+}
+
+#head-main h1:hover {
+  transition: .2s;
+  text-shadow: 0 0 5px #fedc3d;
+  transform: scale(1.005);
+}
+
+header nav {
+  float: right;
+  margin-top: 27px;
+}
+
+header a:hover {
+  background-color: rgba(152, 135, 143, 0.5);
+  color: #cccccc;
+  font-weight: bold;
+  text-decoration: none;
+}
+.main-nav {
+  background: #1b2838;
+  max-height: 50px;
+  border-bottom: #e8491d 3px solid;
+}
+
+.main-nav nav {
+  padding: 10px 10px 15px 10px;
+}
+
+.main-nav nav ul {
+  display: flex;
+}
+
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.main-nav li {
+  display: inline-block;
+  float: left;
+  margin-top: 5px;
+  padding: 0 10px 0 10px;
+}
+
+.main-nav li a:hover {
+  background-color: rgba(152, 135, 143, 0.5);
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+#dummy{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: transparent;
+  border-style: none;
+  border-spacing: 0;
+  color:#66c0f1;
+}
+#dummy th{text-transform: uppercase;}
+#dummy th,#dummy tr td{
+  border-style: none;
+  text-align: left;
+  padding:5px;
+}
+.ainput{
+  color:white;
+  border:none;
+  background: inherit;
+  width:100%;
+  white-space:;
+  font-size: 15px;
+}
+#tollbtn{
+  margin: 10px 10px 10px 0px;
+  padding:10px 10px 10px 10px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border:2px solid black;
+}
+#tollbtn:hover{
+  transform: scale(1.1);
+}
+#myInput {
+  background: #1a435b;
+  color:white;
+  width: 95%;
+  font-size: 16px;
+  padding: 12px 0px 12px 50px;
+  margin: 10px 0px 10px 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#tolllist {
+  padding: 0 20px;
+}
+
+#tolltbl {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: transparent;
+  border-spacing: 0;
+  color:white;
+}
+
+#tolltbl, th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+#tolltbl th {
+  color:#66c0f1;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#tolltbl tr:hover {
+  background-color: #31526e;
+}
+
+td a {
+  color:#fedc3d;
+  text-decoration: none;
+}
+#tollsub{
+  margin:5px;
+  padding: 5px;
+}

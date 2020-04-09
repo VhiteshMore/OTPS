@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url("../images/RFID-tag-1.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  background-size: cover;
+  font-family: "Arial", Helvetica, sans-serif;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+.Ccontainer {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  width:450px;
+  margin: 30px auto;
+}
+
+header {
+  color: #ffffff;
+  background-color: #233237;
+  min-height: 70px;
+  border-bottom: #e8491d 3px solid;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+header #head-main {
+  float: left;
+}
+
+header #head-main h1 {
+  color: #FEDC3D;
+  margin-top: 15px;
+  margin-left: 20px;
+  font-weight: lighter;
+  font-size: 36px;
+}
+
+#head-main h1:hover {
+  transition: .2s;
+  text-shadow: 0 0 5px #fedc3d;
+  transform: scale(1.005);
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+
+header li {
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header nav {
+  float: right;
+  margin-top: 27px;
+}
+
+header a:hover {
+  background-color: rgba(152, 135, 143, 0.5);
+  color: #cccccc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup,
+.login {
+  width: 50%;
+  color: #FEDC3D;
+  background: #233237;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.signup-form,
+.login-form {
+  background: #233237;
+  padding: 40px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 2px solid #8da8a5;
+  border-radius: 6px;
+  background: #98878f;
+  color: black;
+  font-size: 14px;
+  outline: none;
+  transform: all 0.5s ease;
+}
+.error-form-signup,.error-form-login{
+  margin: 5px 0;
+  width:100%;
+  box-sizing: border-box;
+  background-color: #233237;
+  color: white;
+}
+.input:focus {
+  border: 2px solid #FEDC3D;
+  box-shadow: 0 0 5px #fedc3d;
+}
+
+.signup-form #signup-btn,.login-form #login-btn {
+  width: 100%;
+  background: #425d7c;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: #eac67a;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border-style: none;
+  border:1px solid #8da8a5;
+}
+#signup-btn:hover, #login-btn:hover{
+  transition: .3s ease;
+  box-shadow: 0 0 3px #fedc3d;
+  text-shadow: 0 0 5px #fedc3d;
+}
+span a {
+  text-decoration: none;
+  color: #000;
+}
+
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #eae3ea;
+  font-family: roboto;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+  font-family: roboto;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #eae3ea;
+  font-family: roboto;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #eae3ea;
+  font-family: roboto;
+}
