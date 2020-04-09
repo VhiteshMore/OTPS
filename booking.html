@@ -1,0 +1,208 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+<script type="text/javascript">
+var source, destination;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+google.maps.event.addDomListener(window, 'load', function () {
+    new google.maps.places.SearchBox(document.getElementById('txtSource'));
+    new google.maps.places.SearchBox(document.getElementById('txtDestination'));
+    directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+});
+
+function GetRoute() {
+    var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+    var mapOptions = {
+        zoom: 7,
+        center: mumbai
+    };
+    map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('dvPanel'));
+
+    //*********DIRECTIONS AND ROUTE**********************//
+    source = document.getElementById("txtSource").value;
+    destination = document.getElementById("txtDestination").value;
+
+   var request = {
+        origin: source,
+        destination: destination,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+   directionsService.route(request, function (response, status) {
+       if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+        }
+    });
+
+    //*********DISTANCE AND DURATION**********************//
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: [source],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    }, function (response, status) {
+        if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+            var distance = response.rows[0].elements[0].distance.text;
+            var duration = response.rows[0].elements[0].duration.text;
+            var dvDistance = document.getElementById("dvDistance");
+           dvDistance.innerHTML = "";
+            dvDistance.innerHTML += "Distance: " + distance + "<br />";
+            dvDistance.innerHTML += "Duration:" + duration;
+
+        } else {
+            alert("Unable to find the distance via road.");
+        }
+    });
+}
+
+
+</script>
+</head>
+
+<body style="background-image: url(images/pattern.png);">
+     <header>
+    <nav>
+
+  <h1>&nbsp;&nbsp;STransport</h1>
+  <ul>
+    <li><a href="index.html"><b>HOME</b></a></li>
+    <li><a href="booking.html"><b>BOOKING</b></a></li>
+    <li><a href="about.html"><b>ABOUT US</b></a></li>
+    <li><a href="login.html"><b>DRIVER LOGIN</b></a></li>
+    <li><a href="contact.html"><b>CONTACT US</b></a></li>
+  </ul>
+</nav>
+</header>
+<h3>BOOK YOUR TRUCK</h3>
+
+<form name="RegForm" action="/submit.php" onsubmit="return validations()" method="post">
+
+
+<h4><font color="red">Basic Details</font></h4><br><font color="red">
+Name</font><br>
+<input type="text" id="name" name="uname" placeholder="Your name" minlength= required><br><font color="red">
+Phone Number</font><br>
+<input type="number" name="phno" id="no" placeholder="Your contact no." required><br><font color="red">
+Load type</font><br>
+<input type="radio" name="loads" value="full">Full Load(Above 3MT)<br>
+<input type="radio" name="loads" value="half">Half Load(Below 3MT)<br>
+<table border="0" cellpadding="0" cellspacing="3">
+<tr>
+    <td colspan="2">
+        <font color="red">Source:</font>
+        <input type="text" name="source" id="txtSource" style="width: 200px" />
+        &nbsp; <font color="red">Destination:</font>
+        <input type="text" name="dest" id="txtDestination" style="width: 200px" />
+        <br />
+        <input type="button" value="Get Route" onclick="GetRoute()" />
+        <hr />
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <div id="dvDistance">
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>
+        <div id="dvMap" style="width: 500px; height: 500px">
+        </div>
+    </td>
+</tr>
+</table><font color="red">
+Scheduled date:</font><br>
+<input type="date" name="date" id="date" placeholder="Enter date" required><br>
+<td><font color="red">TIME</font></td>
+          <td><select name="time" class="input">
+              <option selected value="8:00">8.00-10.00</option>
+              <option value="11:00">11.00-13.00</option>
+              <option value"14:00">14.00-16.00</option>
+              <option value="17:00">17.00-19.00</option>
+            </select>
+		  </td>
+<div>
+        <td><font color="red">Credit Card Number: </font></td>
+        <input id="cc-number" name="ccno" type="text" maxlength="8" autocomplete="off" value="" autofocus />
+    </div>
+    <div>
+        <td><font color="red">CVC: </font></td>
+        <input id="cc-cvc" type="text" maxlength="4" autocomplete="off" value=""/>
+    </div>
+    <div>
+        <td><font color="red">Expiry Date: </font></td>
+        <select id="cc-exp-month">
+            <option value="01">Jan</option>
+            <option value="02">Feb</option>
+            <option value="03">Mar</option>
+            <option value="04">Apr</option>
+            <option value="05">May</option>
+            <option value="06">Jun</option>
+            <option value="07">Jul</option>
+            <option value="08">Aug</option>
+            <option value="09">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+        </select>
+        <select id="cc-exp-year">
+
+
+            <option value="19">2019</option>
+            <option value="20">2020</option>
+            <option value="21">2021</option>
+            <option value="22">2022</option>
+        </select>
+    </div>
+
+	<p><input type="submit" value="send" name="Submit">
+        <input type="reset" value="Reset" name="Reset">
+    </p>
+
+    </form>
+
+<!--above footer-->
+<div style="background-color: black;">
+    <div class="row">
+
+    <div class="service">
+        <h3 style="text-align: center; color: white;font-size: 25px">About US</h3>
+            <ul style="list-style-type: none;">
+                <li style="text-align: center;color: white; font-size: 25px"><a href="index.html">Home</a></li>
+                <li style="text-align: center;color: white;font-size: 25px"><a href="about.html" >About us</a></li>
+                <li style="text-align: center;color: white;font-size: 25px"><a href="services.html" >Services</a></li>
+                <li style="text-align: center;color: white;font-size: 25px"><a href="booking.html" >Booking</a></li>
+                <li style="text-align: center;color: white;font-size: 25px"><a href="contact.html">Contact Us</a></li></ul>
+    </div>
+
+    <div class="service">
+        <h3 style="text-align: center; color: white; font-size: 25px;">Address</h3>
+                                                <p style="text-align: center; color: white; font-size: 22px;">K.T.Marg,Vasai Road (W),<br>Dist-Palghar,Vasai,<br>Maharashtra 401202<br>Phone: 72278 72278<br> Email: support@STransport.com</p>
+
+     </div>
+
+    <div class="service">
+          <h3 style="text-align: center; color: white;font-size: 25px">Follow us</h3>
+         <br>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-google"></a>
+<a href="#" class="fa fa-linkedin"></a>
+<a href="#" class="fa fa-youtube"></a>
+
+  </div>
+</div>
+<!--footer-->
+<footer>
+    <p style="text-align: center;font-size: 20px;"><b>Copyright &copy; STransport.com</b></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="StyleSheets/logins.css">
+  <script src="jquery-3.3.1.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".login-form").hide();
+      $(".login").css("background", "none");
+
+      $(".login").click(function() {
+        $(".signup-form").hide();
+        $(".login-form").show();
+        $(".signup").css("background", "none");
+        $(".login").css("background", "#233237");
+        $(".login").css("color", "#FEDC3D");
+        $(".login").css("text-shadow", "0 0 5px #fedc3d");
+        $(".signup").css("text-shadow", "none");
+      });
+
+      $(".signup").click(function() {
+        $(".signup-form").show();
+        $(".login-form").hide();
+        $(".login").css("background", "none");
+        $(".signup").css("background", "#233237");
+        $(".signup").css("color", "#FEDC3D");
+        $(".signup").css("text-shadow", "0 0 5px #fedc3d");
+        $(".login").css("text-shadow", "none");
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="Ccontainer">
+        <div id="head-main">
+          <h1>ONLINE TOLL PAYMENT SYSTEM </h1>
+        </div>
+        <div class="main-nav">
+          <nav>
+            <ul>
+              <li><a href="index.html"> home </a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+
+      <div class="signup">Sign Up</div>
+      <div class="login">Log In</div>
+
+      <div class="signup-form">
+        <form id="signupsub" method="post" action="insert.php">
+          <input type="text" id="signup-email" name="signup-email" placeholder="Your Email Address" class="input"><br>
+          <label  class="error-form-signup" id="email-error-message">please enter valid email</label>
+          <input type="text" id="signup-uname" name="signup-uname" placeholder="Choose a Username" class="input"><br>
+          <label  class="error-form-signup" id="uname-error-message">enter username again</label>
+          <input type="tel" id="signup-phno" name="signup-phno" placeholder="Enter a number" class="input"><br>
+          <label  class="error-form-signup" id="phno-error-message">enter a valid mobile number</label>
+          <input type="password" id="signup-pass" name="signup-pass" placeholder="Choose a Password" class="input"><br>
+          <label  class="error-form-signup" id="pass-error-message">atleast 8 characters</label>
+          <input id="signup-btn" name="signup-btn" type="submit" value="create account">
+        </form>
+      </div>
+
+      <div class="login-form">
+        <form id="loginsub" method="post" action="insert.php">
+          <input id="logname" name="logname" type="text" placeholder="Username" class="input">
+          <label class="error-form-login" id="uname-error-messagelog">enter correct username</label>
+          <input id="logpass" name="logpass" type="password" placeholder="Password" class="input">
+          <label class="error-form-login" id="pass-error-messagelog">enter correct password</label>
+          <input id="login-btn" name="login-btn" type="submit" value="login">
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $("document").ready(function() {
+
+      $(".error-form-signup").hide();
+      $(".error-form-login").hide();
+
+      var error_email = false;
+      var error_uname = false;
+      var error_phno = false;
+      var error_pass = false;
+
+
+      $("#signup-email").focusout(function() {
+        check_email();
+      });
+      $("#signup-uname").focusout(function() {
+        check_uname();
+      });
+      $("#signup-phno").focusout(function() {
+        check_phno();
+      });
+      $("#signup-pass").focusout(function() {
+        check_pass();
+      });
+
+      $("#logname").focusout(function() {
+        check_unamelog();
+      });
+      $("#logpass").focusout(function() {
+        check_passlog();
+      });
+      /*  $("#signup-btn").click(function() {
+          submit1();
+        });  */
+
+      function check_email() {
+        var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var email = $("#signup-email").val();
+        if (pattern.test(email) && email !== '') {
+          $("#email-error-message").hide();
+          $("#signup-email").css("border", "2px solid #a239ca");
+          $("#signup-email").css("box-shadow", "0 0 10px #a239ca");
+        } else {
+          $("#email-error-message").show();
+          $("#signup-email").css("border", "2px solid #e24e42");
+          $("#signup-email").css("box-shadow", "0 0 10px #e24e42");
+          error_email = true;
+        }
+      }
+
+      function check_uname() {
+        var pattern = /^[a-zA-Z0-9]*$/;
+        var fname = $("#signup-uname").val();
+        if (pattern.test(fname) && fname !== '') {
+          $("#uname-error-message").hide();
+          $("#signup-uname").css("border", "2px solid #a239ca");
+          $("#signup-uname").css("box-shadow", "0 0 10px #a239ca");
+        } else {
+          $("#uname-error-message").show();
+          $("#signup-uname").css("border", "2px solid #e24e42");
+          $("#signup-uname").css("box-shadow", "0 0 10px #e24e42");
+          error_uname = true;
+        }
+      }
+
+      function check_phno() {
+        var pattern = /^[0-9]*$/
+        var phno = $("#signup-phno").val();
+        var fname = phno.length;
+        if (pattern.test(phno) && phno !== "" && phno.length == '10') {
+          $("#phno-error-message").hide();
+          $("#signup-phno").css("border", "2px solid #a239ca");
+          $("#signup-phno").css("box-shadow", "0 0 10px #a239ca");
+        } else {
+          $("#phno-error-message").show();
+          $("#signup-phno").css("border", "2px solid #e24e42");
+          $("#signup-phno").css("box-shadow", "0 0 10px #e24e42");
+          error_phno = true;
+        }
+      }
+
+      function check_pass() {
+        var password_length = $("#signup-pass").val().length;
+        if (password_length <= 8) {
+          $("#pass-error-message").show();
+          $("#signup-pass").css("border", "2px solid #e24e42");
+          $("#signup-pass").css("box-shadow", "0 0 10px #e24e42");
+          error_pass = true;
+        } else {
+          $("#pass-error-message").hide();
+          $("#signup-pass").css("border", "2px solid #a239ca");
+          $("#signup-pass").css("box-shadow", "0 0 10px #a239ca");
+        }
+      }
+      $("#signupsub").submit(function() {
+        error_email = false;
+        error_uname = false;
+        error_phno = false;
+        error_pass = false;
+        check_email();
+        check_uname();
+        check_phno();
+        check_pass();
+        if (error_email === false && error_uname === false && error_phno === false && error_pass === false) {
+          alert("Registration Successfull");
+          return true;
+        } else {
+          alert("Please Fill the form Correctly");
+          return false;
+        }
+      });
+
+      function check_unamelog() {
+        var pattern = /^[a-zA-Z0-9]*$/;
+        var fname = $("#logname").val();
+        if (pattern.test(fname) && fname !== '') {
+          $("#uname-error-messagelog").hide();
+          $("#logname").css("border", "2px solid #a239ca");
+          $("#logname").css("box-shadow", "0 0 10px #a239ca");
+        } else {
+          $("#uname-error-messagelog").show();
+          $("#logname").css("border", "2px solid #e24e42");
+          $("#logname").css("box-shadow", "0 0 10px #e24e42");
+          var error_unamelog = true;
+        }
+      }
+
+      function check_passlog() {
+        var password_length = $("#logpass").val().length;
+        if (password_length <= 8) {
+          $("#pass-error-messagelog").show();
+          $("#logpass").css("border", "2px solid #e24e42");
+          $("#logpass").css("box-shadow", "0 0 10px #e24e42");
+           var error_passlog = true;
+        } else {
+          $("#pass-error-messagelog").hide();
+          $("#logpass").css("border", "2px solid #a239ca");
+          $("#logpass").css("box-shadow", "0 0 10px #a239ca");
+        }
+      }
+      $("#loginsub").submit(function() {
+        error_unamelog = false;
+        error_passlog = false;
+        check_unamelog();
+        check_passlog();
+        if (error_uname === false && error_pass === false) {
+          alert("You logged in Successfully");
+          return true;
+        } else {
+          alert("Username or Password InCorrect");
+          return false;
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="StyleSheets/styleC.css">
+    <script src="jquery-3.3.1.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+    <header>
+    <div class="Ccontainer">
+      <div id="head-main">
+        <h1>ONLINE TOLL PAYMENT SYSTEM </h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="login.html"><span class="glyphicon">&#xe161;</span> LogIn</a></li>
+          <li><a href="login.html">SignUp</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+    <div class="main-nav">
+      <nav>
+        <ul>
+          <li><a href="index.html"> home </a></li>
+          <li><a href="about.html"> services </a></li>
+          <li><a href="contact.html"> contact us </a></li>
+        </ul>
+      </nav>
+    </div>
+    <section>
+      <div class="enquiry">
+        <div id="help">
+          <p id ="p1">for any grievances you can contact us. </p>
+        </div>
+        <div class="contact-form">
+          <p id="p2">to do please fill up the enquiry form below.</p>
+          <form id="contact" action="Ccontact.php" method="post">
+            <input class="input"type="text" name="email" id="email" placeholder="enter your email">
+            <label class="error" id="error-message-email">Please enter valid email!</label>
+            <textarea class="input" name="textq" id="textq" cols="30" rows="8" placeholder="enter your message here"></textarea>
+            <label class="error" id="error-message-textarea">Please write something!</label>
+            <input type="submit" id="sub-btn" name="sub-btn" value="submit">
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>Augment solutions, Copyright &copy; 2018</p>
+    </footer>
+  </div>
+    <script type="text/javascript">
+    $("document").ready(function(){
+
+      $(".error").hide();
+
+      var error_email = false;
+      var error_text = false;
+
+      $("#email").focusout(function() {
+        check_email();
+      });
+      $("#textq").focusout(function() {
+        check_textq();
+      });
+
+      function check_email() {
+        var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var email = $("#email").val();
+        if (pattern.test(email) && email !== '') {
+          $("#error-message-email").hide();
+          $("#email").css("border", "2px solid #a239ca");
+          $("#email").css("box-shadow", "0 0 10px #a239ca");
+        } else {
+          $("#error-message-email").show();
+          $("#email").css("border", "2px solid #e24e42");
+          $("#email").css("box-shadow", "0 0 10px #e24e42");
+          error_email = true;
+        }
+      }
+
+      function check_textq(){
+        var textq =$("#textq").val().length;
+        if(textq == 0){
+          $("#error-message-textarea").show();
+          $("#textq").css("border", "2px solid #e24e42");
+          $("#textq").css("box-shadow", "0 0 10px #e24e42");
+          error_text= true;
+        }
+        else{
+          $("#error-message-textarea").hide();
+          $("#textq").css("border", "2px solid #a239ca");
+          $("#textq").css("box-shadow", "0 0 10px #a239ca");
+        }
+      }
+      $("#sub-btn").submit(function() {
+        error_email = false;
+        error_text = false;
+        check_email();
+        check_textq();
+        if (error_uname === false && error_pass === false) {
+          alert("Message Successfull sent");
+          return true;
+        } else {
+          alert("Please fill all the fileds");
+          return false;
+        }
+      });
+
+    });
+
+    </script>
+  </body>
+</html>

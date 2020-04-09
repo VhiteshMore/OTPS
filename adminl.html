@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>ADMIN LOGIN</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="StyleSheets/admin.css">
+  <script src="jquery-3.3.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#sub").click(function() {
+        check();
+      });
+    function check(){
+      var user=$("#username").val();
+      var pass=$("#password").val();
+      if(user == 'admin' && pass == 'password'){
+        alert("Admin login Successfull");
+        window.location.href = "./adminpage.php";
+      }
+      else if (user == '' || pass == '') {
+        alert("Please fill the all the fields");
+      }
+      else{
+        alert("Please enter correct username and password");
+      }
+    }
+
+    });
+  </script>
+
+</head>
+
+<body>
+  <header>
+    <div class="Ccontainer">
+      <div id="head-main">
+        <h1>ONLINE TOLL PAYMENT SYSTEM </h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <br><br><br><br><br>
+  <div class="logo">Admin Login</div>
+  <br>
+  <div class="login-block">
+    <h1>Login</h1>
+    <input type="text" value="" placeholder="Username" id="username" name="username"/>
+    <input type="password" value="" placeholder="Password" id="password" name="password"/>
+    <button id="sub" name="sub">Submit</button>
+  </div>
+</body>
+
+</html>
